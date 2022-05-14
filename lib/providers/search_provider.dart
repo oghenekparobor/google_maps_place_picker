@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_getters_setters
+
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 

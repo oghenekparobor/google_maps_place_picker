@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_null_comparison
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -5,7 +7,6 @@ import 'package:google_maps_place_picker/google_maps_place_picker.dart';
 import 'package:google_maps_place_picker/providers/place_provider.dart';
 import 'package:google_maps_place_picker/providers/search_provider.dart';
 import 'package:google_maps_place_picker/src/components/prediction_tile.dart';
-import 'package:google_maps_place_picker/src/components/rounded_frame.dart';
 import 'package:google_maps_place_picker/src/controllers/autocomplete_search_controller.dart';
 import 'package:google_maps_webservice/places.dart';
 import 'package:provider/provider.dart';
@@ -33,8 +34,7 @@ class AutoCompleteSearch extends StatefulWidget {
       this.initialSearchString,
       this.searchForInitialValue,
       this.autocompleteOnTrailingWhitespace})
-      : assert(searchBarController != null),
-        super(key: key);
+      : super(key: key);
 
   final String? sessionToken;
   final String? hintText;
@@ -196,7 +196,9 @@ class AutoCompleteSearchState extends State<AutoCompleteSearch> {
   _searchPlace(String searchTerm) {
     this.provider.prevSearchTerm = searchTerm;
 
-    if (context == null) return;
+    if (context == null) {
+      return;
+    }
 
     _clearOverlay();
 
